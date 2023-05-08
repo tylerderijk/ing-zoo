@@ -1,4 +1,4 @@
-package com.ing.zoo.animals;
+package com.ing.zoo;
 
 public interface Animal {
 

@@ -1,5 +1,6 @@
 package com.ing.zoo.animals;
 
+import com.ing.zoo.Animal;
 import com.ing.zoo.Herbivore;
 
 public class Zebra implements Animal, Herbivore {

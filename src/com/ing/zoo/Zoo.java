@@ -8,12 +8,6 @@ import java.util.Set;
 
 public class Zoo {
     public static void main(String[] args) {
-        String[] commands = new String[4];
-        commands[0] = "hello";
-        commands[1] = "give leaves";
-        commands[2] = "give meat";
-        commands[3] = "perform trick";
-
         Lion henk = new Lion();
         henk.name = "henk";
         Hippo elsa = new Hippo();
@@ -25,6 +19,7 @@ public class Zoo {
         Zebra marty = new Zebra();
         marty.name = "marty";
 
+        // Maak van de dieren een lijst, zodat je ze makkelijk allemaal tegelijk kan aanspreken.
         Set<Animal> animals = new HashSet<>();
         animals.add(henk);
         animals.add(elsa);
@@ -37,35 +32,63 @@ public class Zoo {
 
         String input = scanner.nextLine();
         switch (input) {
-            case"hello":
+            case "hello":
                 for (Animal animal : animals) {
-                    animal.sayHello();
+                    animal.sayHello(); // Roep sayHello voor elk dier aan.
                 }
                 break;
             case "give leaves":
                 for (Animal animal : animals) {
                     if (animal instanceof Herbivore) {
-                        ((Herbivore) animal).eatLeaves();
+                        ((Herbivore) animal).eatLeaves(); // Roep eatLeaves voor elk dier aan dat Herbivore is.
                     }
                 }
                 break;
             case "give meat":
                 for (Animal animal : animals) {
                     if (animal instanceof Carnivore) {
-                        ((Carnivore) animal).eatMeat();
+                        ((Carnivore) animal).eatMeat(); // Roep eatMeat voor elk dier aan dat Carnivore is.
                     }
                 }
+                break;
             case "perform trick":
                 for (Animal animal : animals) {
                     if (animal instanceof Tiger) {
-                        ((Tiger) animal).performTrick();
+                        ((Tiger) animal).performTrick(); // Indien een Tiger, roep performTrick aan.
                     }
                     if (animal instanceof Pig) {
-                        ((Pig) animal).performTrick();
+                        ((Pig) animal).performTrick(); // Doe hetzelfde voor de Pig.
                     }
                 }
+                break;
             default:
-                System.out.println("Unknown command: " + input);
+                // Indien niet een van de commando's, check of het 'hello <naam>' is, en roep vervolgens sayHello
+                // voor dit dier aan.
+                if (input.split(" ")[0].equals("hello") && input.split(" ").length == 2) {
+                    switch (input.split(" ")[1]) {
+                        case "henk":
+                            henk.sayHello();
+                            break;
+                        case "elsa":
+                            elsa.sayHello();
+                            break;
+                        case "dora":
+                            dora.sayHello();
+                            break;
+                        case "wally":
+                            wally.sayHello();
+                            break;
+                        case "marty":
+                            marty.sayHello();
+                            break;
+                        default:
+                            System.out.println("Het volgende dier is niet gevonden: " + input);
+                    }
+                } else {
+                    System.out.println("Unknown command: " + input);
+                }
+                break;
         }
+
     }
 }
