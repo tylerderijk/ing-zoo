@@ -37,26 +37,35 @@ public class Zoo {
 
         String input = scanner.nextLine();
         switch (input) {
-            case "hello":
+            case"hello":
                 for (Animal animal : animals) {
                     animal.sayHello();
                 }
                 break;
             case "give leaves":
-                // THE ANIMAL is of type Carnivore, print "I don't eat leaves!"
-
-                // THE ANIMAL is of type Herbivore, print "Munch munch, lovely!"
                 for (Animal animal : animals) {
                     if (animal instanceof Herbivore) {
                         ((Herbivore) animal).eatLeaves();
                     }
                 }
                 break;
-        }
-        if (input.equals(commands[0] + " henk")) {
-            henk.sayHello();
-        } else {
-            System.out.println("Unknown command: " + input);
+            case "give meat":
+                for (Animal animal : animals) {
+                    if (animal instanceof Carnivore) {
+                        ((Carnivore) animal).eatMeat();
+                    }
+                }
+            case "perform trick":
+                for (Animal animal : animals) {
+                    if (animal instanceof Tiger) {
+                        ((Tiger) animal).performTrick();
+                    }
+                    if (animal instanceof Pig) {
+                        ((Pig) animal).performTrick();
+                    }
+                }
+            default:
+                System.out.println("Unknown command: " + input);
         }
     }
 }
