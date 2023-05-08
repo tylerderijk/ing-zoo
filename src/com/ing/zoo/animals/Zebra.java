@@ -1,8 +1,8 @@
-package com.ing.zoo;
+package com.ing.zoo.animals;
 
 import java.util.Random;
 
-public class Zebra {
+public class Zebra implements Animal {
     public String name;
     public String helloText;
     public String eatText;
@@ -12,6 +12,7 @@ public class Zebra {
     {
     }
 
+    @Override
     public void sayHello()
     {
         helloText = "zebra zebra";

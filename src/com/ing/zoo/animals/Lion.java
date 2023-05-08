@@ -1,6 +1,8 @@
-package com.ing.zoo;
+package com.ing.zoo.animals;
 
-public class Lion {
+import com.ing.zoo.Carnivore;
+
+public class Lion implements Animal, Carnivore {
     public String name;
     public String helloText;
     public String eatText;
@@ -9,12 +11,14 @@ public class Lion {
     {
     }
 
+    @Override
     public void sayHello()
     {
         helloText = "roooaoaaaaar";
         System.out.println(helloText);
     }
 
+    @Override
     public void eatMeat()
     {
         eatText = "nomnomnom thx mate";
