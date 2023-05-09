@@ -18,6 +18,10 @@ public class Zoo {
         wally.name = "wally";
         Zebra marty = new Zebra();
         marty.name = "marty";
+        Rabbit tyler = new Rabbit();
+        tyler.name = "tyler";
+        Dog max = new Dog();
+        max.name = "max";
 
         // Maak van de dieren een lijst, zodat je ze makkelijk allemaal tegelijk kan aanspreken.
         Set<Animal> animals = new HashSet<>();
@@ -26,6 +30,8 @@ public class Zoo {
         animals.add(dora);
         animals.add(wally);
         animals.add(marty);
+        animals.add(tyler);
+        animals.add(max);
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Voer uw command in: ");
@@ -59,6 +65,9 @@ public class Zoo {
                     if (animal instanceof Pig) {
                         ((Pig) animal).performTrick(); // Doe hetzelfde voor de Pig.
                     }
+                    if (animal instanceof Dog) {
+                        ((Dog) animal).performTrick(); // Doe hetzelfde voor de Dog.
+                    }
                 }
                 break;
             default:
@@ -80,6 +89,12 @@ public class Zoo {
                             break;
                         case "marty":
                             marty.sayHello();
+                            break;
+                        case "tyler":
+                            tyler.sayHello();
+                            break;
+                        case "max":
+                            max.sayHello();
                             break;
                         default:
                             System.out.println("Het volgende dier is niet gevonden: " + input);
